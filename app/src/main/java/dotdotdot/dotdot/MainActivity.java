@@ -1,20 +1,69 @@
 package dotdotdot.dotdot;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.List;
+import java.util.ArrayList;
+
 
 
 public class MainActivity extends ActionBarActivity {
-
+    private static List<String> menuItems = new ArrayList<String>();
+    private static ListView list;
+    private Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Here, I associate the xml id of the ListView (the
+        //scrollable list) with an object in Java so I can
+        //modify it and set its parameters
+        list = (ListView)findViewById(R.id.listView);
+        list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+
+        //Here I add items to the list of menu items which will
+        //be added to the ListView later
+        menuItems.add("Start Game");
+        menuItems.add("Leaderboard");
+        menuItems.add("Settings");
+
+        //Call method to update the list with menuItems
+        updateFiles();
+
+        //Below, I set the onItemClickListener, which specifies
+        //what action is taken when the item is clicked
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {    //Start Game
+
+                }
+                else if(position==1){   //Leaderboard
+
+                }
+                else if(position==2) {   //Settings
+                }
+            }
+        });
+
     }
 
+    public void updateFiles() {
+        // TODO display all of the files in the files ArrayList
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,menuItems);
+        list.setAdapter(adapter);
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
