@@ -1,5 +1,8 @@
 package dotdotdot.dotdot;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,14 +11,15 @@ import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageButton;
-
+import android.widget.Toast;
 import java.util.Random;
-
 
 public class GameActivity extends ActionBarActivity {
     int score=0;
+    int highScore=0;
     ImageButton[] dots = new ImageButton[20];
     View[] rows = new View[5];
+    final Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +54,38 @@ public class GameActivity extends ActionBarActivity {
         dots[18]=(ImageButton)findViewById(R.id.imageView19);
         dots[19]=(ImageButton)findViewById(R.id.imageView20);
 
-        //Hide all dot images in beginning
-        for(int i=0;i<5;i++){
-            clearAndSet(i);
+        //Debug check to see if we are registering properly
+        /*AlertDialog.Builder adb=new AlertDialog.Builder(context);
+        adb.setTitle("Success!");
+        adb.setPositiveButton("Ok...",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {dialog.cancel();}});
+        AlertDialog ad=adb.create();
+        ad.show();*/
+
+        //Set Listeners for dots in first row
+        for(int i=0;i<4;i++){
+
+            dots[i].setClickable(true);
+            dots[i].setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    //if timer has not started, start it
+                    if(view.getVisibility()==View.VISIBLE){
+                        score++;
+
+                        //Debug check to see if we are registering properly
+                        /*AlertDialog.Builder adb=new AlertDialog.Builder(context);
+                        adb.setTitle("Success!");
+                        adb.setPositiveButton("Ok...",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {dialog.cancel();}});
+                        AlertDialog ad=adb.create();
+                        ad.show();*/
+                        advanceRows();
+                    }
+                    else
+                        gameOver(-1);
+                }
+            });
         }
-        //TODO: Selectively hide 3 of the 4 dots in each row
+        startGame();
         //TODO: Once First Dot is pressed, start the timer
 
 
@@ -83,6 +114,49 @@ public class GameActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //game progression begins here
+    public void startGame(){
+        score=0;
+        for(int i=0;i<5;i++)
+            clearAndSet(i);
+
+        //TODO: Reset Timer
+        //TODO: Once first dot clicked, start timer
+
+    }
+
+    //advance the dots for each row and set a new top row
+    public void advanceRows(){
+        //first, clear first row, then take the row above
+        //and set dot below
+        clearRow(0);
+        for(int i=1;i<5;i++){
+            int colNum=0;
+            int x=0;
+            for(int j=i*4;j<i*4+4;j++){
+                if(dots[j].getVisibility()==View.VISIBLE){
+                    colNum=x;
+                    dots[j].setVisibility(View.INVISIBLE);
+                }
+                x++;
+            }
+            //once we have column number of dot,
+            //apply it to row below
+            dots[(i-1)*4+colNum].setVisibility(View.VISIBLE);
+        }
+        //On the top row, set a new random configuration
+        clearAndSet(4);
+
+    }
+
+    //Set a row to blank
+    public void clearRow(int rowNum){
+        int j=rowNum*4+4;
+        for(int i=rowNum*4;i<j;i++){
+            if(dots[i].getVisibility()==View.VISIBLE)
+                    dots[i].setVisibility(View.INVISIBLE);
+        }
+    }
     //set all images in the selected row to hidden with one item
     //in row visible
     public void clearAndSet(int rowNum){
@@ -102,5 +176,15 @@ public class GameActivity extends ActionBarActivity {
                 dots[i].setVisibility(View.INVISIBLE);
         }
 
+    }
+
+    //End game conditions
+    public void gameOver(int condition){
+        if(condition==-1){
+            //player hit a wrong tile
+        }
+        else{
+            //player finished after time
+        }
     }
 }
