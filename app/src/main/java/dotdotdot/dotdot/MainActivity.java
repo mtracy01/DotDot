@@ -20,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
     private static List<String> menuItems = new ArrayList<String>();
     private static ListView list;
     private Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +31,17 @@ public class MainActivity extends ActionBarActivity {
         //modify it and set its parameters
         list = (ListView)findViewById(R.id.listView);
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
+        int flag = menuItems.size();
         //Here I add items to the list of menu items which will
         //be added to the ListView later
-        menuItems.add("Start Game");
-        menuItems.add("Leaderboard");
-        menuItems.add("Settings");
+        if (flag == 0)
+        {
+            menuItems.add("Start Game");
+            menuItems.add("Leaderboard");
+            menuItems.add("Settings");
+            flag++;
+        }
+
 
         //Call method to update the list with menuItems
         updateFiles();
