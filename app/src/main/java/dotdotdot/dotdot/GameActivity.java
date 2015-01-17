@@ -4,51 +4,55 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
+
+import java.util.Random;
 
 
 public class GameActivity extends ActionBarActivity {
     int score=0;
-    ImageView[] dots = new ImageView[20];
-    TextureView[] rows = new TextureView[5];
+    ImageButton[] dots = new ImageButton[20];
+    View[] rows = new View[5];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
         //Get Rows from bottom to top
-        rows[0]=  (TextureView)findViewById(R.id.textureView4);
-        rows[1]=  (TextureView)findViewById(R.id.textureView3);
-        rows[2]=  (TextureView)findViewById(R.id.textureView2);
-        rows[3]=  (TextureView)findViewById(R.id.textureView1);
-        rows[4]=  (TextureView)findViewById(R.id.textureView);
+        rows[0]=  (View)findViewById(R.id.textureView4);
+        rows[1]=  (View)findViewById(R.id.textureView3);
+        rows[2]=  (View)findViewById(R.id.textureView2);
+        rows[3]=  (View)findViewById(R.id.textureView1);
+        rows[4]=  (View)findViewById(R.id.textureView);
 
         //Get dots from left to right, bottom to top
-        dots[0]=(ImageView)findViewById(R.id.imageView);
-        dots[1]=(ImageView)findViewById(R.id.imageView2);
-        dots[2]=(ImageView)findViewById(R.id.imageView3);
-        dots[3]=(ImageView)findViewById(R.id.imageView4);
-        dots[4]=(ImageView)findViewById(R.id.imageView5);
-        dots[5]=(ImageView)findViewById(R.id.imageView6);
-        dots[6]=(ImageView)findViewById(R.id.imageView7);
-        dots[7]=(ImageView)findViewById(R.id.imageView8);
-        dots[8]=(ImageView)findViewById(R.id.imageView9);
-        dots[9]=(ImageView)findViewById(R.id.imageView10);
-        dots[10]=(ImageView)findViewById(R.id.imageView11);
-        dots[11]=(ImageView)findViewById(R.id.imageView12);
-        dots[12]=(ImageView)findViewById(R.id.imageView13);
-        dots[13]=(ImageView)findViewById(R.id.imageView14);
-        dots[14]=(ImageView)findViewById(R.id.imageView15);
-        dots[15]=(ImageView)findViewById(R.id.imageView16);
-        dots[16]=(ImageView)findViewById(R.id.imageView17);
-        dots[17]=(ImageView)findViewById(R.id.imageView18);
-        dots[18]=(ImageView)findViewById(R.id.imageView19);
-        dots[19]=(ImageView)findViewById(R.id.imageView20);
+        dots[0]=(ImageButton)findViewById(R.id.imageView);
+        dots[1]=(ImageButton)findViewById(R.id.imageView2);
+        dots[2]=(ImageButton)findViewById(R.id.imageView3);
+        dots[3]=(ImageButton)findViewById(R.id.imageView4);
+        dots[4]=(ImageButton)findViewById(R.id.imageView5);
+        dots[5]=(ImageButton)findViewById(R.id.imageView6);
+        dots[6]=(ImageButton)findViewById(R.id.imageView7);
+        dots[7]=(ImageButton)findViewById(R.id.imageView8);
+        dots[8]=(ImageButton)findViewById(R.id.imageView9);
+        dots[9]=(ImageButton)findViewById(R.id.imageView10);
+        dots[10]=(ImageButton)findViewById(R.id.imageView11);
+        dots[11]=(ImageButton)findViewById(R.id.imageView12);
+        dots[12]=(ImageButton)findViewById(R.id.imageView13);
+        dots[13]=(ImageButton)findViewById(R.id.imageView14);
+        dots[14]=(ImageButton)findViewById(R.id.imageView15);
+        dots[15]=(ImageButton)findViewById(R.id.imageView16);
+        dots[16]=(ImageButton)findViewById(R.id.imageView17);
+        dots[17]=(ImageButton)findViewById(R.id.imageView18);
+        dots[18]=(ImageButton)findViewById(R.id.imageView19);
+        dots[19]=(ImageButton)findViewById(R.id.imageView20);
 
+        //Hide all dot images in beginning
         for(int i=0;i<5;i++){
-
+            clearAndSet(i);
         }
         //TODO: Selectively hide 3 of the 4 dots in each row
         //TODO: Once First Dot is pressed, start the timer
@@ -77,5 +81,26 @@ public class GameActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //set all images in the selected row to hidden with one item
+    //in row visible
+    public void clearAndSet(int rowNum){
+
+        //Choose row's new dot at random
+        Random rand=new Random();
+        int nextDot=rand.nextInt(4);
+
+        //Reset row with only 1 visible dot
+        //chosen at random
+        int x=0;
+        int j=4*rowNum+4;
+        for(int i=4*rowNum;i<j;i++, x++){
+            if(x==nextDot)
+                dots[i].setVisibility(View.VISIBLE);
+            else
+                dots[i].setVisibility(View.INVISIBLE);
+        }
+
     }
 }

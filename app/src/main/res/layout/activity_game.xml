@@ -6,48 +6,58 @@
     android:paddingBottom="0dp"
     tools:context="dotdotdot.dotdot.GameActivity">
 
-    <TextureView
+    <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:id="@+id/textureView1"
         android:layout_marginTop="99dp"
         android:layout_below="@+id/viewAnimator"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/material_blue_grey_900"
+        />
 
-    <TextureView
+    <View
         android:layout_width="wrap_content"
-    android:layout_height="2dp"
-    android:id="@+id/textureView2"
+        android:layout_height="2dp"
+
+        android:id="@+id/textureView2"
         android:layout_marginTop="112dp"
         android:layout_below="@+id/textureView1"
         android:layout_alignParentLeft="true"
+        android:background="@color/material_blue_grey_900"
         android:layout_alignParentStart="true" />
 
-    <TextureView
+
+    <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:id="@+id/textureView3"
         android:layout_marginTop="112dp"
         android:layout_below="@+id/textureView2"
         android:layout_alignParentLeft="true"
+        android:background="@color/material_blue_grey_900"
         android:layout_alignParentStart="true" />
 
-    <TextureView
+    <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:id="@+id/textureView4"
         android:layout_above="@+id/textureView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="111dp" />
+        android:layout_marginBottom="111dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/material_blue_grey_900"
+        android:layout_alignParentEnd="true" />
 
-    <TextureView
+    <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:id="@+id/textureView5"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:background="@color/material_blue_grey_900"
         android:layout_alignParentStart="true" />
 
 
@@ -64,7 +74,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp" />
 
-    <TextureView
+    <View
         android:layout_width="2dp"
         android:layout_height="wrap_content"
         android:id="@+id/textureView6"
@@ -72,16 +82,18 @@
         android:layout_marginStart="18dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imageView"
+        android:background="@color/material_blue_grey_900"
         android:layout_toEndOf="@+id/imageView" />
 
-    <TextureView
+    <View
         android:layout_width="2dp"
         android:layout_height="wrap_content"
         android:id="@+id/textureView7"
         android:layout_alignParentTop="true"
+        android:background="@color/material_blue_grey_900"
         android:layout_centerHorizontal="true" />
 
-    <TextureView
+    <View
         android:layout_width="2dp"
         android:layout_height="wrap_content"
         android:id="@+id/textureView8"
@@ -90,9 +102,10 @@
         android:layout_marginStart="89dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textureView7"
+        android:background="@color/material_blue_grey_900"
         android:layout_toEndOf="@+id/textureView7" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
@@ -103,7 +116,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
@@ -113,7 +126,7 @@
         android:layout_alignLeft="@+id/textureView6"
         android:layout_alignStart="@+id/textureView6" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
@@ -123,7 +136,7 @@
         android:layout_alignStart="@+id/textureView7"
         android:layout_marginLeft="10dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView4"
@@ -133,26 +146,26 @@
         android:layout_toEndOf="@+id/textureView8"
         android:layout_marginLeft="15dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView5"
         android:background="@drawable/dot"
-        android:layout_marginBottom="21dp"
-        android:layout_above="@+id/textureView4"
+        android:layout_alignTop="@+id/imageView6"
         android:layout_toLeftOf="@+id/textureView6"
         android:layout_toStartOf="@+id/textureView6" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView6"
         android:background="@drawable/dot"
-        android:layout_alignTop="@+id/imageView5"
+        android:layout_below="@+id/textureView3"
         android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2" />
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginTop="38dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView7"
@@ -161,7 +174,7 @@
         android:layout_alignLeft="@+id/imageView3"
         android:layout_alignStart="@+id/imageView3" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView8"
@@ -170,43 +183,47 @@
         android:layout_alignLeft="@+id/imageView4"
         android:layout_alignStart="@+id/imageView4" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView9"
         android:background="@drawable/dot"
         android:layout_alignTop="@+id/imageView10"
         android:layout_toLeftOf="@+id/textureView6"
-        android:layout_toStartOf="@+id/textureView6" />
+        android:layout_toStartOf="@+id/textureView6"
+        android:layout_marginBottom="5dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView10"
         android:background="@drawable/dot"
         android:layout_alignTop="@+id/imageView11"
         android:layout_alignLeft="@+id/imageView6"
-        android:layout_alignStart="@+id/imageView6" />
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_marginBottom="5dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView11"
         android:background="@drawable/dot"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textureView2"
         android:layout_alignLeft="@+id/imageView7"
-        android:layout_alignStart="@+id/imageView7" />
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_marginTop="20dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView12"
         android:background="@drawable/dot"
-        android:layout_alignTop="@+id/imageView11"
+        android:layout_below="@+id/textureView2"
         android:layout_alignLeft="@+id/imageView8"
-        android:layout_alignStart="@+id/imageView8" />
+        android:layout_alignStart="@+id/imageView8"
+        android:layout_marginTop="20dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView13"
@@ -216,7 +233,7 @@
         android:layout_alignLeft="@+id/imageView9"
         android:layout_alignStart="@+id/imageView9" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView14"
@@ -225,7 +242,7 @@
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView15"
@@ -234,7 +251,7 @@
         android:layout_alignLeft="@+id/imageView11"
         android:layout_alignStart="@+id/imageView11" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView16"
@@ -243,7 +260,7 @@
         android:layout_alignLeft="@+id/imageView12"
         android:layout_alignStart="@+id/imageView12" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView17"
@@ -253,7 +270,7 @@
         android:layout_alignStart="@+id/imageView13"
         android:layout_marginTop="14dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView18"
@@ -262,7 +279,7 @@
         android:layout_alignLeft="@+id/imageView14"
         android:layout_alignStart="@+id/imageView14" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView19"
@@ -272,7 +289,7 @@
         android:layout_alignStart="@+id/imageView15"
         android:layout_marginTop="15dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView20"
@@ -281,11 +298,12 @@
         android:layout_alignLeft="@+id/imageView16"
         android:layout_alignStart="@+id/imageView16" />
 
-    <TextureView
+    <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:id="@+id/textureView"
         android:layout_alignParentTop="true"
+        android:background="@color/material_blue_grey_900"
         android:layout_alignLeft="@+id/imageView17"
         android:layout_alignStart="@+id/imageView17" />
 
