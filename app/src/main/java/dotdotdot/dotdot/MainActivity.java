@@ -1,6 +1,7 @@
 package dotdotdot.dotdot;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -45,12 +46,16 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {    //Start Game
-
+                    Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                    startActivity(intent);
                 }
                 else if(position==1){   //Leaderboard
-
+                    Intent intent = new Intent(MainActivity.this, LeaderboardActivity.class);
+                    startActivity(intent);
                 }
                 else if(position==2) {   //Settings
+                    Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                    startActivity(intent);
                 }
             }
         });
