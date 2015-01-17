@@ -281,4 +281,12 @@
         android:layout_alignLeft="@+id/imageView16"
         android:layout_alignStart="@+id/imageView16" />
 
+    <TextureView
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:id="@+id/textureView"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/imageView17"
+        android:layout_alignStart="@+id/imageView17" />
+
 </RelativeLayout>
