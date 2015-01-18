@@ -11,10 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="2dp"
         android:id="@+id/textureView1"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="130dp"
         android:layout_above="@+id/textureView2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:background="@color/material_blue_grey_900"
         />
 
@@ -38,7 +38,7 @@
         android:layout_above="@+id/textureView4"
         android:layout_alignParentLeft="true"
         android:background="@color/material_blue_grey_900"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false" />
 
     <View
         android:layout_width="wrap_content"
@@ -46,11 +46,11 @@
         android:id="@+id/textureView4"
         android:layout_above="@+id/textureView5"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:layout_marginTop="150dp"
         android:layout_alignParentRight="true"
         android:background="@color/material_blue_grey_900"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="false" />
 
     <View
         android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginTop="150dp"
         android:background="@color/material_blue_grey_900"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false" />
 
 
 
@@ -70,7 +70,7 @@
         android:id="@+id/viewAnimator"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:layout_marginLeft="2238dp"
         android:layout_marginStart="333dp"
         android:layout_alignParentTop="true"
@@ -80,12 +80,11 @@
         android:layout_width="2dp"
         android:layout_height="wrap_content"
         android:id="@+id/textureView6"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="80dp"
         android:layout_marginStart="18dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
         android:background="@color/material_blue_grey_900"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_alignParentStart="false" />
 
     <View
         android:layout_width="2dp"
@@ -107,160 +106,161 @@
         android:background="@color/material_blue_grey_900"
         android:layout_toEndOf="@+id/textureView7" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView"
         android:background="@drawable/dot"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginBottom="42dp"
-        android:layout_alignBottom="@+id/textureView6"
         android:layout_alignParentLeft="true"
         android:clickable="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="450dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView2"
         android:clickable="true"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="100dp"
         android:background="@drawable/dot"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignLeft="@+id/textureView6"
-        android:layout_alignStart="@+id/textureView6" />
+        android:layout_marginTop="450dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView3"
         android:clickable="true"
         android:background="@drawable/dot"
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_alignLeft="@+id/textureView7"
-        android:layout_alignStart="@+id/textureView7"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="205dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView4"
         android:clickable="true"
         android:background="@drawable/dot"
-        android:layout_alignBottom="@+id/imageView3"
-        android:layout_toRightOf="@+id/textureView8"
-        android:layout_toEndOf="@+id/textureView8"
-        android:layout_marginLeft="15dp" />
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="450dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView5"
         android:background="@drawable/dot"
         android:clickable="true"
-        android:layout_alignTop="@+id/imageView6"
-        android:layout_toLeftOf="@+id/textureView6"
-        android:layout_toStartOf="@+id/textureView6" />
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="5dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView6"
         android:background="@drawable/dot"
         android:clickable="true"
-        android:layout_below="@+id/textureView3"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_marginTop="33dp" />
+        android:layout_marginTop="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="100dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView7"
         android:background="@drawable/dot"
         android:clickable="true"
-        android:layout_alignTop="@+id/imageView6"
-        android:layout_alignLeft="@+id/imageView3"
-        android:layout_alignStart="@+id/imageView3" />
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="205dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView8"
         android:background="@drawable/dot"
-        android:layout_alignTop="@+id/imageView7"
         android:clickable="true"
-        android:layout_alignLeft="@+id/imageView4"
-        android:layout_alignStart="@+id/imageView4" />
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="300dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView9"
         android:background="@drawable/dot"
-        android:layout_alignTop="@+id/imageView10"
         android:clickable="true"
-        android:layout_toLeftOf="@+id/textureView6"
-        android:layout_toStartOf="@+id/textureView6"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="150dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView10"
         android:background="@drawable/dot"
-        android:layout_alignTop="@+id/imageView11"
         android:clickable="true"
-        android:layout_alignLeft="@+id/imageView6"
-        android:layout_alignStart="@+id/imageView6"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginTop="150dp"
+        android:layout_alignParentStart="false"
+        android:layout_marginLeft="100dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView11"
         android:background="@drawable/dot"
-        android:layout_below="@+id/textureView2"
-        android:layout_alignLeft="@+id/imageView7"
         android:clickable="true"
-        android:layout_alignStart="@+id/imageView7"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="205dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView12"
         android:background="@drawable/dot"
-        android:layout_below="@+id/textureView2"
-        android:layout_alignLeft="@+id/imageView8"
         android:clickable="true"
-        android:layout_alignStart="@+id/imageView8"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="300dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView13"
         android:background="@drawable/dot"
         android:layout_marginBottom="22dp"
-        android:layout_above="@+id/textureView3"
         android:clickable="true"
-        android:layout_alignLeft="@+id/imageView9"
-        android:layout_alignStart="@+id/imageView9" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView14"
         android:background="@drawable/dot"
         android:clickable="true"
         android:layout_alignTop="@+id/imageView13"
         android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2" />
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="100dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView15"
         android:background="@drawable/dot"
         android:layout_alignTop="@+id/imageView14"
@@ -268,9 +268,10 @@
         android:layout_alignLeft="@+id/imageView11"
         android:layout_alignStart="@+id/imageView11" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView16"
         android:background="@drawable/dot"
         android:layout_alignTop="@+id/imageView15"
@@ -278,9 +279,10 @@
         android:layout_alignLeft="@+id/imageView12"
         android:layout_alignStart="@+id/imageView12" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView17"
         android:background="@drawable/dot"
         android:layout_below="@+id/viewAnimator"
@@ -289,9 +291,10 @@
         android:layout_alignStart="@+id/imageView13"
         android:layout_marginTop="14dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView18"
         android:background="@drawable/dot"
         android:clickable="true"
@@ -299,9 +302,10 @@
         android:layout_alignLeft="@+id/imageView14"
         android:layout_alignStart="@+id/imageView14" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView19"
         android:background="@drawable/dot"
         android:clickable="true"
@@ -310,9 +314,10 @@
         android:layout_alignStart="@+id/imageView15"
         android:layout_marginTop="15dp" />
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton android:layout_gravity="top"
+        android:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/imageView20"
         android:background="@drawable/dot"
         android:clickable="true"
@@ -328,5 +333,239 @@
         android:background="@color/material_blue_grey_900"
         android:layout_alignLeft="@+id/imageView17"
         android:layout_alignStart="@+id/imageView17" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:visibility="gone"
+        android:id="@+id/blankView"
+        android:background="@null"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="42dp"
+        android:layout_alignBottom="@+id/textureView6"
+        android:layout_alignParentLeft="true"
+        android:clickable="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView2"
+        android:visibility="gone"
+        android:clickable="true"
+        android:layout_marginLeft="12dp"
+        android:background="@null"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/textureView6"
+        android:layout_alignStart="@+id/textureView6" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView3"
+        android:clickable="true"
+        android:visibility="gone"
+        android:background="@null"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignLeft="@+id/textureView7"
+        android:layout_alignStart="@+id/textureView7"
+        android:layout_marginLeft="10dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView4"
+        android:clickable="true"
+        android:background="@null"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_toRightOf="@+id/textureView8"
+        android:layout_toEndOf="@+id/textureView8"
+        android:layout_marginLeft="15dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView5"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_alignTop="@+id/imageView6"
+        android:layout_toLeftOf="@+id/textureView6"
+        android:layout_toStartOf="@+id/textureView6" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView6"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_below="@+id/textureView3"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginTop="33dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView7"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_alignTop="@+id/imageView6"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_alignStart="@+id/imageView3" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView8"
+        android:background="@null"
+        android:layout_alignTop="@+id/imageView7"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/imageView4"
+        android:layout_alignStart="@+id/imageView4" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView9"
+        android:background="@null"
+        android:layout_alignTop="@+id/imageView10"
+        android:clickable="true"
+        android:layout_toLeftOf="@+id/textureView6"
+        android:layout_toStartOf="@+id/textureView6"
+        android:layout_marginBottom="5dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView10"
+        android:background="@null"
+        android:layout_alignTop="@+id/imageView11"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_marginBottom="5dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView11"
+        android:background="@null"
+        android:layout_below="@+id/textureView2"
+        android:layout_alignLeft="@+id/imageView7"
+        android:clickable="true"
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_marginTop="30dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView12"
+        android:background="@null"
+        android:layout_below="@+id/textureView2"
+        android:layout_alignLeft="@+id/imageView8"
+        android:clickable="true"
+        android:layout_alignStart="@+id/imageView8"
+        android:layout_marginTop="30dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView13"
+        android:background="@null"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/textureView3"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/imageView9"
+        android:layout_alignStart="@+id/imageView9" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView14"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_alignTop="@+id/imageView13"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView15"
+        android:background="@null"
+        android:layout_alignTop="@+id/imageView14"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/imageView11"
+        android:layout_alignStart="@+id/imageView11" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView16"
+        android:background="@null"
+        android:layout_alignTop="@+id/imageView15"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/imageView12"
+        android:layout_alignStart="@+id/imageView12" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView17"
+        android:background="@null"
+        android:layout_below="@+id/viewAnimator"
+        android:clickable="true"
+        android:layout_alignLeft="@+id/imageView13"
+        android:layout_alignStart="@+id/imageView13"
+        android:layout_marginTop="14dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView18"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_alignTop="@+id/imageView17"
+        android:layout_alignLeft="@+id/imageView14"
+        android:layout_alignStart="@+id/imageView14" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView19"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_below="@+id/viewAnimator"
+        android:layout_alignLeft="@+id/imageView15"
+        android:layout_alignStart="@+id/imageView15"
+        android:layout_marginTop="15dp" />
+
+    <ImageButton android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/blankView20"
+        android:background="@null"
+        android:clickable="true"
+        android:layout_alignTop="@+id/imageView19"
+        android:layout_alignLeft="@+id/imageView16"
+        android:layout_alignStart="@+id/imageView16" />
+
 
 </RelativeLayout>

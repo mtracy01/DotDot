@@ -3,6 +3,10 @@ package dotdotdot.dotdot;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.AvoidXfermode;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -20,6 +24,7 @@ public class GameActivity extends FragmentActivity {
     int score=0;
     int highScore=0;
     ImageButton[] dots = new ImageButton[20];
+    ImageButton[] blanks= new ImageButton[20];
     View[] rows = new View[5];
     final Context context = this;
     @Override
@@ -65,17 +70,47 @@ public class GameActivity extends FragmentActivity {
         dots[18]=(ImageButton)findViewById(R.id.imageView19);
         dots[19]=(ImageButton)findViewById(R.id.imageView20);
 
-        //Debug check to see if we are registering properly
-        /*AlertDialog.Builder adb=new AlertDialog.Builder(context);
-        adb.setTitle("Success!");
-        adb.setPositiveButton("Ok...",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {dialog.cancel();}});
-        AlertDialog ad=adb.create();
-        ad.show();*/
 
+        blanks[0]=(ImageButton)findViewById(R.id.blankView);
+        blanks[1]=(ImageButton)findViewById(R.id.blankView2);
+        blanks[2]=(ImageButton)findViewById(R.id.blankView3);
+        blanks[3]=(ImageButton)findViewById(R.id.blankView4);
+        blanks[4]=(ImageButton)findViewById(R.id.blankView5);
+        blanks[5]=(ImageButton)findViewById(R.id.blankView6);
+        blanks[6]=(ImageButton)findViewById(R.id.blankView7);
+        blanks[7]=(ImageButton)findViewById(R.id.blankView8);
+        blanks[8]=(ImageButton)findViewById(R.id.blankView9);
+        blanks[9]=(ImageButton)findViewById(R.id.blankView10);
+        blanks[10]=(ImageButton)findViewById(R.id.blankView11);
+        blanks[11]=(ImageButton)findViewById(R.id.blankView12);
+        blanks[12]=(ImageButton)findViewById(R.id.blankView13);
+        blanks[13]=(ImageButton)findViewById(R.id.blankView14);
+        blanks[14]=(ImageButton)findViewById(R.id.blankView15);
+        blanks[15]=(ImageButton)findViewById(R.id.blankView16);
+        blanks[16]=(ImageButton)findViewById(R.id.blankView17);
+        blanks[17]=(ImageButton)findViewById(R.id.blankView18);
+        blanks[18]=(ImageButton)findViewById(R.id.blankView19);
+        blanks[19]=(ImageButton)findViewById(R.id.blankView20);
+
+        for(int i=0;i<20;i++){
+            blanks[i].setVisibility(View.GONE);
+            dots[i].setVisibility(View.GONE);
+            if(i<4) {
+                blanks[i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        gameOver(-1);
+                    }
+                });
+            }
+        }
         //Set Listeners for dots in first row
+        final int buttonBackgroundColor = dots[0].getDrawingCacheBackgroundColor();
         for(int i=0;i<4;i++){
 
             dots[i].setClickable(true);
+
             dots[i].setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
@@ -83,16 +118,9 @@ public class GameActivity extends FragmentActivity {
                     if(view.getVisibility()==View.VISIBLE){
                         score++;
 
-                        //Debug check to see if we are registering properly
-                        /*AlertDialog.Builder adb=new AlertDialog.Builder(context);
-                        adb.setTitle("Success!");
-                        adb.setPositiveButton("Ok...",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {dialog.cancel();}});
-                        AlertDialog ad=adb.create();
-                        ad.show();*/
                         advanceRows();
                     }
-                    else
-                        gameOver(-1);
+
                 }
             });
         }
@@ -147,12 +175,14 @@ public class GameActivity extends FragmentActivity {
             for(int j=i*4;j<i*4+4;j++){
                 if(dots[j].getVisibility()==View.VISIBLE){
                     colNum=x;
-                    dots[j].setVisibility(View.INVISIBLE);
+                    dots[j].setVisibility(View.GONE);
+                    blanks[j].setVisibility(View.VISIBLE);
                 }
                 x++;
             }
             //once we have column number of dot,
             //apply it to row below
+            blanks[(i-1)*4+colNum].setVisibility(View.GONE);
             dots[(i-1)*4+colNum].setVisibility(View.VISIBLE);
         }
         //On the top row, set a new random configuration
@@ -163,9 +193,13 @@ public class GameActivity extends FragmentActivity {
     //Set a row to blank
     public void clearRow(int rowNum){
         int j=rowNum*4+4;
-        for(int i=rowNum*4;i<j;i++){
-            if(dots[i].getVisibility()==View.VISIBLE)
-                    dots[i].setVisibility(View.INVISIBLE);
+        for(int i=rowNum*4;i<j;i++) {
+            if (dots[i].getVisibility() == View.VISIBLE) {
+                dots[i].setVisibility(View.GONE);
+                blanks[i].setVisibility(View.VISIBLE);
+
+                //dots[i].setBackgroundColor();
+            }
         }
     }
     //set all images in the selected row to hidden with one item
@@ -181,10 +215,14 @@ public class GameActivity extends FragmentActivity {
         int x=0;
         int j=4*rowNum+4;
         for(int i=4*rowNum;i<j;i++, x++){
-            if(x==nextDot)
+            if(x==nextDot){
+                blanks[i].setVisibility(View.GONE);
                 dots[i].setVisibility(View.VISIBLE);
-            else
-                dots[i].setVisibility(View.INVISIBLE);
+            }
+            else {
+                dots[i].setVisibility(View.GONE);
+                blanks[i].setVisibility(View.VISIBLE);
+            }
         }
 
     }
@@ -193,6 +231,15 @@ public class GameActivity extends FragmentActivity {
     public void gameOver(int condition){
         if(condition==-1){
             //player hit a wrong tile
+            AlertDialog.Builder adb=new AlertDialog.Builder(context);
+            adb.setTitle("Game Over!");
+            if(score > highScore)
+                highScore=score;
+            adb.setMessage("You're Score: "+ score +"\n ");
+            adb.setPositiveButton("Play Again",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {startGame();dialog.cancel();}});
+            adb.setNegativeButton("Main Menu",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {Intent intent = new Intent(GameActivity.this, MainActivity.class); startActivity(intent); }});
+            AlertDialog ad=adb.create();
+            ad.show();
         }
         else{
             //player finished after time
