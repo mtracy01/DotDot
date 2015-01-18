@@ -28,6 +28,7 @@ public class GameActivity extends FragmentActivity {
     int gameEnded=0;
     int highScore=0;
     int firstHit=0;
+
     ImageButton[] dots = new ImageButton[20];
     ImageButton[] blanks= new ImageButton[20];
     View[] rows = new View[5];
@@ -108,6 +109,8 @@ public class GameActivity extends FragmentActivity {
         blanks[19]=(ImageButton)findViewById(R.id.blankView20);
         final EditText mTextField = (EditText)findViewById(R.id.editText);
 
+
+        //mTextField2 = mTextField;
         for(int i=0;i<20;i++){
             blanks[i].setVisibility(View.GONE);
             dots[i].setVisibility(View.GONE);
@@ -133,15 +136,17 @@ public class GameActivity extends FragmentActivity {
                     if(view.getVisibility()==View.VISIBLE){
                         if(firstHit==0){
                             firstHit=1;
-                            new CountDownTimer(30000, 1) {
+                            final CountDownTimer timer =new CountDownTimer(30000, 1) {
                                 public void onTick(long millisUntilFinished) {
-                                     if(gameEnded !=1) mTextField.setText("" + millisUntilFinished);
+                                    if(gameEnded !=1) mTextField.setText("" + millisUntilFinished);//updateText(millisUntilFinished);
+                                    else this.cancel();
                                 }
 
                                 public void onFinish() {
                                     gameOver(-1);
                                 }
-                            }.start();
+                            };
+                            timer.start();
                         }
                         if(gameEnded!=1){
                             score++;
@@ -149,6 +154,7 @@ public class GameActivity extends FragmentActivity {
                         }
                         else
                             gameOver(-1);
+                            
 
                     }
 
@@ -156,9 +162,6 @@ public class GameActivity extends FragmentActivity {
             });
         }
         startGame();
-        //TODO: Once First Dot is pressed, start the timer
-
-
     }
 
 
@@ -282,7 +285,7 @@ public class GameActivity extends FragmentActivity {
                     //dialog.cancel();
                 }
             });
-            adb.setNegativeButton("Main Menu",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {Intent intent = new Intent(GameActivity.this, MainActivity.class); startActivity(intent); }});
+            adb.setNegativeButton("Main Menu",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {Intent intent = new Intent(GameActivity.this, MainActivity.class); startActivity(intent); overridePendingTransition(R.anim.right_in,R.anim.left_out);}});
             AlertDialog ad=adb.create();
             ad.show();
         }
@@ -290,4 +293,7 @@ public class GameActivity extends FragmentActivity {
             //player finished after time
         }
     }
+    /*public void updateText(long millisUntilFinished){
+        mTextField.setText("" + millisUntilFinished);
+    }*/
 }

@@ -67,6 +67,7 @@ public class MainActivity extends FragmentActivity {
                 if (position == 0) {    //Start Game
                     Intent intent = new Intent(MainActivity.this, GameActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.right_in,R.anim.left_out);
                 }
                 else if(position==1){   //Leaderboard
                     Intent intent = new Intent(MainActivity.this, LeaderboardActivity.class);
