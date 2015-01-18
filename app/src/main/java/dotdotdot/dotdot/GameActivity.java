@@ -235,7 +235,7 @@ public class GameActivity extends FragmentActivity {
             adb.setTitle("Game Over!");
             if(score > highScore)
                 highScore=score;
-            adb.setMessage("You're Score: "+ score +"\n ");
+            adb.setMessage("Your Score: "+ score +"\n High Score: " + highScore + "\n");
             adb.setPositiveButton("Play Again",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {startGame();dialog.cancel();}});
             adb.setNegativeButton("Main Menu",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {Intent intent = new Intent(GameActivity.this, MainActivity.class); startActivity(intent); }});
             AlertDialog ad=adb.create();
