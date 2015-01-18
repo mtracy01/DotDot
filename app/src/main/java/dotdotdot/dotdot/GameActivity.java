@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.AvoidXfermode;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.CountDownTimer;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -16,13 +17,16 @@ import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import java.util.Random;
 
 public class GameActivity extends FragmentActivity {
     int score=0;
+    int gameEnded=0;
     int highScore=0;
+    int firstHit=0;
     ImageButton[] dots = new ImageButton[20];
     ImageButton[] blanks= new ImageButton[20];
     View[] rows = new View[5];
@@ -91,6 +95,7 @@ public class GameActivity extends FragmentActivity {
         blanks[17]=(ImageButton)findViewById(R.id.blankView18);
         blanks[18]=(ImageButton)findViewById(R.id.blankView19);
         blanks[19]=(ImageButton)findViewById(R.id.blankView20);
+        final EditText mTextField = (EditText)findViewById(R.id.editText);
 
         for(int i=0;i<20;i++){
             blanks[i].setVisibility(View.GONE);
@@ -106,7 +111,6 @@ public class GameActivity extends FragmentActivity {
             }
         }
         //Set Listeners for dots in first row
-        final int buttonBackgroundColor = dots[0].getDrawingCacheBackgroundColor();
         for(int i=0;i<4;i++){
 
             dots[i].setClickable(true);
@@ -116,9 +120,25 @@ public class GameActivity extends FragmentActivity {
                 public void onClick(View view){
                     //if timer has not started, start it
                     if(view.getVisibility()==View.VISIBLE){
-                        score++;
+                        if(firstHit==0){
+                            firstHit=1;
+                            new CountDownTimer(30000, 1) {
+                                public void onTick(long millisUntilFinished) {
+                                     if(gameEnded !=1) mTextField.setText("" + millisUntilFinished);
+                                }
 
-                        advanceRows();
+                                public void onFinish() {
+                                    gameOver(-1);
+                                }
+                            }.start();
+                        }
+                        if(gameEnded!=1){
+                            score++;
+                            advanceRows();
+                        }
+                        else
+                            gameOver(-1);
+
                     }
 
                 }
@@ -156,6 +176,8 @@ public class GameActivity extends FragmentActivity {
     //game progression begins here
     public void startGame(){
         score=0;
+        gameEnded=0;
+        firstHit=0;
         for(int i=0;i<5;i++)
             clearAndSet(i);
 
@@ -229,6 +251,7 @@ public class GameActivity extends FragmentActivity {
 
     //End game conditions
     public void gameOver(int condition){
+        gameEnded=1;
         if(condition==-1){
             //player hit a wrong tile
             AlertDialog.Builder adb=new AlertDialog.Builder(context);
@@ -236,7 +259,12 @@ public class GameActivity extends FragmentActivity {
             if(score > highScore)
                 highScore=score;
             adb.setMessage("Your Score: "+ score +"\n High Score: " + highScore + "\n");
-            adb.setPositiveButton("Play Again",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {startGame();dialog.cancel();}});
+            adb.setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    startGame();
+                    dialog.cancel();
+                }
+            });
             adb.setNegativeButton("Main Menu",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {Intent intent = new Intent(GameActivity.this, MainActivity.class); startActivity(intent); }});
             AlertDialog ad=adb.create();
             ad.show();
