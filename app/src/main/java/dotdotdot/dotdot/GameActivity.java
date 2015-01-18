@@ -279,7 +279,7 @@ public class GameActivity extends FragmentActivity {
             adb.setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     startGame();
-                    dialog.cancel();
+                    //dialog.cancel();
                 }
             });
             adb.setNegativeButton("Main Menu",new DialogInterface.OnClickListener(){ public void onClick(DialogInterface dialog, int id) {Intent intent = new Intent(GameActivity.this, MainActivity.class); startActivity(intent); }});
