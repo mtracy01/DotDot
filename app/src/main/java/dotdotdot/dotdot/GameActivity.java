@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.AvoidXfermode;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -33,6 +34,16 @@ public class GameActivity extends FragmentActivity {
     final Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Attempt to retrieve a stored high score
+        SharedPreferences scoreHistory = getSharedPreferences("scoreLog",MODE_PRIVATE);
+        if(scoreHistory.contains("HighScore")){
+            highScore=scoreHistory.getInt("HighScore",0);
+        }
+        else{
+            SharedPreferences.Editor e = scoreHistory.edit();
+            e.putInt("HighScore",0);
+            e.commit();
+        }
         super.onCreate(savedInstanceState);
        // this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_game);
@@ -256,9 +267,15 @@ public class GameActivity extends FragmentActivity {
             //player hit a wrong tile
             AlertDialog.Builder adb=new AlertDialog.Builder(context);
             adb.setTitle("Game Over!");
-            if(score > highScore)
-                highScore=score;
-            adb.setMessage("Your Score: "+ score +"\n High Score: " + highScore + "\n");
+            if(score > highScore) {
+                highScore = score;
+                SharedPreferences scoreHistory = getSharedPreferences("scoreLog",MODE_PRIVATE);
+                SharedPreferences.Editor e = scoreHistory.edit();
+                e.putInt("HighScore",highScore);
+                e.commit();
+
+            }
+            adb.setMessage("Your Score: "+ score +"\nHigh Score: " + highScore + "\n");
             adb.setPositiveButton("Play Again", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     startGame();
