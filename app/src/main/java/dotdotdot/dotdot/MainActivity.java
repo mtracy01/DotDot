@@ -1,27 +1,23 @@
 package dotdotdot.dotdot;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class MainActivity extends FragmentActivity {
     private static List<String> menuItems = new ArrayList<String>();
     private static ListView list;
-    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -85,7 +85,7 @@
         android:layout_marginStart="18dp"
         android:layout_alignParentTop="true"
         android:background="@color/material_blue_grey_900"
-        android:layout_alignParentStart="false" />
+         />
 
     <View
         android:layout_width="2dp"
